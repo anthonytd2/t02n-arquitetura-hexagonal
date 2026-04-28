@@ -1,0 +1,16 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Rodar API Hexagonal",
+      "request": "launch",
+      "mainClass": "com.fag.lucasmartins.arquitetura_software.ArquiteturaHexagonalApplication",
+      "projectName": "t02n-arquitetura-software",
+      "env": {
+        "ACCESS_KEY": "SUA_ACCESS_KEY_AQUI",
+        "SECRET_KEY": "SUA_SECRET_KEY_AQUI"
+      }
+    }
+  ]
+}
