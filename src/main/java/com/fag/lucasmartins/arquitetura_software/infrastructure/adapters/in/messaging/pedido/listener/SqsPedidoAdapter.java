@@ -23,16 +23,15 @@ public class SqsPedidoAdapter {
         this.pedidoServicePort = pedidoServicePort;
     }
 
-    // ATENÇÃO: Substitua pelo nome exato da sua fila criada na AWS
-    @SqsListener("T0XN_SEU_NOME_COMPLETO.fifo")
+    @SqsListener("${aws.sqs.queue.pedido}")
     public void receberMensagem(PedidoEventDTO evento) {
         try {
             log.info("Evento de pedido recebido da AWS! Cliente ID: {}", evento.getCustomerId());
 
-            // Converte o JSON que chegou para o objeto de negócio
+          
             final PedidoBO pedidoBO = PedidoEventDTOMapper.toBo(evento);
             
-            // Reutiliza a Service para salvar o pedido no banco de dados
+            
             pedidoServicePort.criarPedido(pedidoBO);
 
             log.info("Pedido processado e salvo com sucesso no banco de dados!");
